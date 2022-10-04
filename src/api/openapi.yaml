@@ -1,0 +1,253 @@
+openapi: 3.0.0
+info:
+  title: 'Conversations Inbox API'
+  description: |
+    The Conversations Inbox API is a JSON REST API to connect to social messaging platforms like WhatsApp Business,
+    Apple Business Chat, Facebook Messenger, Twitter DM, Viber, LINE and more.
+
+    **HTTP requests**
+
+    Standard HTTP methods, such as GET or POST, are used with the *application/json* content type.
+    API keys are used for authentication and TLS 1.2 is required.
+
+    **HTTP responses**
+
+    HTTP success status codes, such as *200 OK* or *201 Created*, are returned for successful responses and the
+    response data has the *application/json* content type.
+
+    HTTP error status codes, such as *400 Bad Request* or *401 Unauthorized*, are returned for error responses.
+    See [Error codes](#error-codes) for more information.
+
+    ## Channels & JIDs
+
+    The API uses Jabber IDs (JIDs) to identify channels and contacts. They have the same format as email addresses.
+    The following channels are supported:
+
+    | Channel             | JID example |
+    |---------------------|----------------------------------------------------|
+    | WhatsApp Business   | 31611111111@whatsapp.eazy.im |
+    | Apple Business Chat | d2b9f484-08ac-45a7-bbe0-f2f7d844bcb6@apple.eazy.im |
+    | Facebook Messenger  | 1918363544518991@messenger.eazy.im |
+    | Line                | 8191584934115639@line.eazy.im |
+    | Twitter DM          | 872362551@twitter.eazy.im |
+    | Viber               | voON2IU2FTGtgUB50qc08g@viber.eazy.im |
+    | Web chat            | 8191584934115639@webchat.eazy.im |
+    | SMS                 | 31633333333@sms.eazy.im |
+
+    **Note:** Custom channels can be added on your demand. For instance, an existing chat in your custom mobile app
+    or live chat on your website can be added as a channel in the Conversations Inbox.
+
+    ## Error codes
+
+    ```json
+    400 Bad Request
+
+    {
+        "error": {
+            "code": 1005,
+            "message": "Jid is invalid"
+        },
+        "traceId": "7e6459"
+    }
+    ```
+
+    In the case an HTTP error status (4xx) was returned, the response provides a detailed error code and message
+    in the JSON body, see the sample on the right.
+
+    The *traceId* can be used by our support team to track down the corresponding request.
+
+    The following error codes and messages are defined:
+
+    | Error code | Description |
+    |----------------|-------------------|
+    | 1001 | Unauthorized |
+    | 1002 | Access denied |
+    | 1003 | Service unavailable |
+    | 1004 | Internal server error |
+    | 1005 | Validation error |
+    | 1006 | Template name does not exist |
+    | 1007 | User does not have WhatsApp |
+    | 1008 | Media is invalid |
+    | 1009 | Not found |
+    | 1010 | Assistant has no ownership of conversation |
+    | 1011 | Message rejected |
+    | 1012 | Bad gateway |
+    | 1013 | Parameter count mismatch |
+    | 1014 | Already exists |
+    | 1015 | Customer care window expired |
+  contact:
+    name: tyntec API Support
+    url: http://www.tyntec.com/support
+    email: support@tyntec.com
+  version: '1.0'
+  x-repository: https://github.com/tyntec/api-collection/blob/master/third-party/eazy
+  x-major-version: v1
+servers:
+  - url: https://api.cmd.tyntec.com/
+security:
+  - bearerAuth: []
+paths:
+  /channels/{channelJid}/messages/{contactJid}:
+    post:
+      summary: Send a message
+      tags:
+        - 'Messaging'
+      operationId: sendMessage
+      description: |
+        Request to send a message to a contact in a channel.
+
+        The JSON body structure of each message type is listed below.
+
+        **Audio**
+
+        | **Element** | **Value**	| **Mandatory**	| **Description**  |
+        | ---         | ---       | ---           | ---              |
+        | mimeType    | string    | Y             |MIME type         |
+        |type	        | "audio"	| Y             | Message type     |
+
+        **Contact**
+
+        | **Element** | **Value**	| **Mandatory**	| **Description**   |
+        | ---         | ---       | ---           | ---               |
+        | contacts	| array 	| Y             | Contact structure |
+        | type    	| "contact" | Y          	| Message type      |
+
+        **Document**
+
+        | **Element** | **Value**	| **Mandatory**	| **Description**  |
+        | ---         | ---       | ---           | ---              |
+        | fileName	| string	| Y	            | File name        |
+        | mimeType	| string	| Y	            | MIME type        |
+        | title   	| string	| Y           	| Document title   |
+        | type        | "document"| Y         	| Message type     |
+
+        **Gif**
+
+        | **Element** | **Value**	| **Mandatory**	| **Description**      |
+        | ---         | ---       | ---           | ---                  |
+        | caption	    | string	| N             | Caption text message |
+        | mimeType	| string	| Y         	| MIME type            |
+        | type    	| "gif" 	| Y           	| Message type         |
+
+        **Image**
+
+        | **Element** | **Value**	| **Mandatory**	| **Description**      |
+        | ---         | ---       | ---           | ---                  |
+        | caption   	| string 	| N             | Caption text message |
+        | mimeType	| string	| Y             | MIME type            |
+        | type        | "image" 	| Y         	| Message type         |
+
+        **Location**
+
+        | **Element** | **Value**	 | **Mandatory**	| **Description**         |
+        | ---         | ---        | ---              | ---                     |
+        | latitude	| float	Y	 | Latitude         | coordinate              |
+        | longitude	| float	Y	 | Longitude        | coordinate              |
+        | name	    | string	 | N                | Name of the location    |
+        | type	    | "location" | Y                | Message type            |
+        | url	        | string	 | N                | Website URL             |
+
+        **Voice message**
+
+        | **Element** | **Value** | **Mandatory** | **Description**   |
+        | ---         | ---       | ---           | ---               |
+        | mimeType    | string    | Y             | MIME type         |
+        | type        | "ptt"     | Y             | Message type      |
+
+        **Sticker**
+
+        | **Element** | **Value**	| **Mandatory**	| **Description**   |
+        | ---         | ---       | ---           | ---               |
+        | mimeType	| string	| Y             | MIME type         |
+        | type        | "sticker"	| Y             | Message type      |
+
+        **Template**
+
+        | **Element** | **Value**	 | **Mandatory**	| **Description**     |
+        | ---         | ---        | ---              | ---                 |
+        | template	| array      | Y                | Template structure  |
+        | type        | "template" | Y                | Message type        |
+
+        **Text**
+
+        | **Element** | **Value**	| **Mandatory**	| **Description**   |
+        | ---         | ---       | ---           | ---               |
+        | body        | string	| Y             | Message body      |
+        | type        | "text"	| Y             | Message type      |
+
+        **Video**
+
+        | **Element** | **Value**	| **Mandatory**	| **Description**       |
+        | ---         | ---       | ---           | ---                   |
+        | caption     | string	| N             | Caption text message  |
+        | mimeType	| string	| Y             | MIME type             |
+        | type        | "video"	| Y             | Message type          |
+      parameters:
+        - in: path
+          name: channelJid
+          required: true
+          description: Jabber IDs to represent channel
+          schema:
+            type: string
+            format: email
+            example: 'channelJid@company.com'
+        - in: path
+          name: contactJid
+          required: true
+          description: Jabber IDs to represent contacts
+          schema:
+            type: string
+            format: email
+            example: 'contactJid@company.com'
+      requestBody:
+        description: The message you would like to send
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  description: Outgoing message
+                  type: object
+                  example:
+                    body: Hello world
+                    type: text
+      responses:
+        202:
+          description: Accepted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    description: The returned id can be used to match delivery [receipts](https://api.eazy.im/v3/#webhooks-overview) to the original message.
+                    type: string
+                    example: 'b48eaa2fab1e942cad8b8717ec6bf3ed2dad05a'
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: The API key is transmitted using the Authentication header with the Bearer scheme.
+      name: Authorization
+      description: |
+        The Conversations Inbox API uses API keys for authentication. The API key is transmitted using the Authorization
+        header with the Bearer scheme:
+
+        `Authorization: Bearer Tnhip5Hiq10gGiKhNS850ShCAjIQZAgKDAN0JAIL`
+
+        ## Scopes
+
+        Each key has a scope that defines to which endpoints the key has access to. The following scopes are defined:
+
+        | **Scope**   | **Description** |
+        |-------------|---------------|
+        | Channel     | Access to channel related endpoints |
+        | Assistant   | Same as channel including assistant related endpoints |
+        | Company     | Same as channel including company related endpoints |
+        | Owner       | Same as company including owner related endpoints |
+
+        **Note:** API keys are stored in a hashed format. so it is not possible to retrieve them.

@@ -10,14 +10,19 @@
     "build": "tsc",
     "lint": "eslint --ext .js,.ts ./src",
     "lint:fix": "eslint --fix --ext .js,.ts ./src",
-    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
+    "generate:api": "openapi  --useOptions --indent 2 --name ApiClient --useUnionTypes true --client axios --input ./src/api/openapi.yaml --output ./src/api/generated"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.39.0",
     "@typescript-eslint/parser": "^5.39.0",
     "eslint": "^8.24.0",
     "eslint-config-prettier": "^8.5.0",
+    "openapi-typescript-codegen": "^0.23.0",
     "prettier": "^2.7.1",
     "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "botbuilder": "^4.17.1"
   }
 }
