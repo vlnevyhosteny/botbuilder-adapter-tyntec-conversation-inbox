@@ -1,0 +1,15 @@
+{
+  "name": "botbuilder-adapter-tyntec-conversation-inbox",
+  "version": "1.0.0",
+  "description": "A Microsoft Bot Framework adapter for handling connectivity in tyntec Conversations Inbox API.",
+  "main": "index.js",
+  "repository": "https://github.com/vlnevyhosteny/botbuilder-adapter-tyntec-conversation-inbox.git",
+  "author": "Vladimír Nevyhoštěný <vnevyhosteny@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
+}
