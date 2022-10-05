@@ -1,5 +1,1 @@
-console.log('Hello world!')
-
-if (true) {
-  console.log('foo')
-}
+export * from './TyntecConversationInboxAdapter'

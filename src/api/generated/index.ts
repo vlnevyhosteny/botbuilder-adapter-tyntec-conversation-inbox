@@ -15,6 +15,7 @@ export type { SendDocumentMessageBodyType } from './models/SendDocumentMessageBo
 export type { SendGifMessageBodyType } from './models/SendGifMessageBodyType';
 export type { SendImageMessageBodyType } from './models/SendImageMessageBodyType';
 export type { SendLocationMessageBodyType } from './models/SendLocationMessageBodyType';
+export type { SendMessageResponse } from './models/SendMessageResponse';
 export type { SendStickerMessageBodyType } from './models/SendStickerMessageBodyType';
 export type { SendTemplateMessageBodyType } from './models/SendTemplateMessageBodyType';
 export type { SendTextMessageBodyType } from './models/SendTextMessageBodyType';

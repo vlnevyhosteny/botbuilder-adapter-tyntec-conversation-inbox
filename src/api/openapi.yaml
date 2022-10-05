@@ -223,12 +223,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  id:
-                    description: The returned id can be used to match delivery [receipts](https://api.eazy.im/v3/#webhooks-overview) to the original message.
-                    type: string
-                    example: 'b48eaa2fab1e942cad8b8717ec6bf3ed2dad05a'
+                $ref: '#/components/schemas/SendMessageResponse'
 
 components:
   securitySchemes:
@@ -415,3 +410,11 @@ components:
           type: array
           items:
             type: object
+
+    SendMessageResponse:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string

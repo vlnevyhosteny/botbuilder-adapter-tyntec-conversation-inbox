@@ -7,6 +7,7 @@ import type { SendDocumentMessageBodyType } from '../models/SendDocumentMessageB
 import type { SendGifMessageBodyType } from '../models/SendGifMessageBodyType';
 import type { SendImageMessageBodyType } from '../models/SendImageMessageBodyType';
 import type { SendLocationMessageBodyType } from '../models/SendLocationMessageBodyType';
+import type { SendMessageResponse } from '../models/SendMessageResponse';
 import type { SendStickerMessageBodyType } from '../models/SendStickerMessageBodyType';
 import type { SendTemplateMessageBodyType } from '../models/SendTemplateMessageBodyType';
 import type { SendTextMessageBodyType } from '../models/SendTextMessageBodyType';
@@ -111,7 +112,7 @@ export class MessagingService {
    * | mimeType  | string  | Y             | MIME type             |
    * | type        | "video"  | Y             | Message type          |
    *
-   * @returns any Accepted
+   * @returns SendMessageResponse Accepted
    * @throws ApiError
    */
   public sendMessage({
@@ -131,12 +132,7 @@ export class MessagingService {
      * The message you would like to send
      */
     requestBody: (SendTextMessageBodyType | SendVideoMessageBodyType | SendTemplateMessageBodyType | SendStickerMessageBodyType | SendVoiceMessageBodyType | SendLocationMessageBodyType | SendImageMessageBodyType | SendGifMessageBodyType | SendDocumentMessageBodyType | SendContactMessageBodyType | SendAudioMessageBodyType),
-  }): CancelablePromise<{
-    /**
-     * The returned id can be used to match delivery [receipts](https://api.eazy.im/v3/#webhooks-overview) to the original message.
-     */
-    id?: string;
-  }> {
+  }): CancelablePromise<SendMessageResponse> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/channels/{channelJid}/messages/{contactJid}',
