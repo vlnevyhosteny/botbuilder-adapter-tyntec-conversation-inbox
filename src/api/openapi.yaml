@@ -205,14 +205,18 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                message:
-                  description: Outgoing message
-                  type: object
-                  example:
-                    body: Hello world
-                    type: text
+              oneOf:
+                - $ref: '#/components/schemas/SendTextMessageBodyType'
+                - $ref: '#/components/schemas/SendVideoMessageBodyType'
+                - $ref: '#/components/schemas/SendTemplateMessageBodyType'
+                - $ref: '#/components/schemas/SendStickerMessageBodyType'
+                - $ref: '#/components/schemas/SendVoiceMessageBodyType'
+                - $ref: '#/components/schemas/SendLocationMessageBodyType'
+                - $ref: '#/components/schemas/SendImageMessageBodyType'
+                - $ref: '#/components/schemas/SendGifMessageBodyType'
+                - $ref: '#/components/schemas/SendDocumentMessageBodyType'
+                - $ref: '#/components/schemas/SendContactMessageBodyType'
+                - $ref: '#/components/schemas/SendAudioMessageBodyType'
       responses:
         202:
           description: Accepted
@@ -251,3 +255,163 @@ components:
         | Owner       | Same as company including owner related endpoints |
 
         **Note:** API keys are stored in a hashed format. so it is not possible to retrieve them.
+
+  schemas:
+    SendTextMessageBodyType:
+      type: object
+      required:
+        - type
+        - body
+      properties:
+        type:
+          type: string
+          enum: ['text']
+          defaultValue: 'text'
+        body:
+          type: string
+
+    SendVideoMessageBodyType:
+      type: object
+      required:
+        - mimeType
+        - type
+      properties:
+        caption:
+          type: string
+        mimeType:
+          type: string
+        type:
+          type: string
+          enum: ['video']
+          defaultValue: 'video'
+
+    SendTemplateMessageBodyType:
+      type: object
+      required:
+        - type
+        - template
+      properties:
+        type:
+          type: string
+          enum: ['template']
+        template:
+          type: array
+          items:
+            type: object
+
+    SendStickerMessageBodyType:
+      type: object
+      required:
+        - mimeType
+        - type
+      properties:
+        type:
+          type: string
+          enum: ['sticker']
+        mimeType:
+          type: string
+
+    SendVoiceMessageBodyType:
+      type: object
+      required:
+        - mimeType
+        - type
+      properties:
+        type:
+          type: string
+          enum: ['ptt']
+        mimeType:
+          type: string
+
+    SendLocationMessageBodyType:
+      type: object
+      required:
+        - type
+        - latitude
+        - longitude
+      properties:
+        type:
+          type: string
+          enum: ['location']
+        latitude:
+          type: number
+          format: float
+        longitude:
+          type: number
+          format: float
+        name:
+          type: string
+        url:
+          type: string
+
+    SendImageMessageBodyType:
+      type: object
+      required:
+        - mimeType
+        - type
+      properties:
+        caption:
+          type: string
+        mimeType:
+          type: string
+        type:
+          type: string
+          enum: ['image']
+
+    SendGifMessageBodyType:
+      type: object
+      required:
+        - mimeType
+        - type
+      properties:
+        caption:
+          type: string
+        mimeType:
+          type: string
+        type:
+          type: string
+          enum: ['gif']
+
+    SendDocumentMessageBodyType:
+      type: object
+      required:
+        - mimeType
+        - type
+        - title
+        - fileName
+      properties:
+        title:
+          type: string
+        fileName:
+          type: string
+        mimeType:
+          type: string
+        type:
+          type: string
+          enum: ['document']
+
+    SendAudioMessageBodyType:
+      type: object
+      required:
+        - mimeType
+        - type
+      properties:
+        mimeType:
+          type: string
+        type:
+          type: string
+          enum: ['audio']
+
+    SendContactMessageBodyType:
+      type: object
+      required:
+        - type
+        - contacts
+      properties:
+        type:
+          type: string
+          enum: ['contact']
+        contacts:
+          type: array
+          items:
+            type: object

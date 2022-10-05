@@ -1,6 +1,18 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { SendAudioMessageBodyType } from '../models/SendAudioMessageBodyType';
+import type { SendContactMessageBodyType } from '../models/SendContactMessageBodyType';
+import type { SendDocumentMessageBodyType } from '../models/SendDocumentMessageBodyType';
+import type { SendGifMessageBodyType } from '../models/SendGifMessageBodyType';
+import type { SendImageMessageBodyType } from '../models/SendImageMessageBodyType';
+import type { SendLocationMessageBodyType } from '../models/SendLocationMessageBodyType';
+import type { SendStickerMessageBodyType } from '../models/SendStickerMessageBodyType';
+import type { SendTemplateMessageBodyType } from '../models/SendTemplateMessageBodyType';
+import type { SendTextMessageBodyType } from '../models/SendTextMessageBodyType';
+import type { SendVideoMessageBodyType } from '../models/SendVideoMessageBodyType';
+import type { SendVoiceMessageBodyType } from '../models/SendVoiceMessageBodyType';
+
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 
@@ -118,12 +130,7 @@ export class MessagingService {
     /**
      * The message you would like to send
      */
-    requestBody: {
-      /**
-       * Outgoing message
-       */
-      message?: any;
-    },
+    requestBody: (SendTextMessageBodyType | SendVideoMessageBodyType | SendTemplateMessageBodyType | SendStickerMessageBodyType | SendVoiceMessageBodyType | SendLocationMessageBodyType | SendImageMessageBodyType | SendGifMessageBodyType | SendDocumentMessageBodyType | SendContactMessageBodyType | SendAudioMessageBodyType),
   }): CancelablePromise<{
     /**
      * The returned id can be used to match delivery [receipts](https://api.eazy.im/v3/#webhooks-overview) to the original message.
