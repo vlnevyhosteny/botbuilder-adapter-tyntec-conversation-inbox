@@ -421,6 +421,21 @@ components:
 
     # Webhooks
 
+    InboundMessage:
+      oneOf:
+        - $ref: '#/components/schemas/BasicInboundMessage'
+        - $ref: '#/components/schemas/WhatsAppInboundMediaMessage'
+        - $ref: '#/components/schemas/WhatsAppInboundMessage'
+        - $ref: '#/components/schemas/TwitterInboundMediaMessage'
+        - $ref: '#/components/schemas/TwitterInboundMessage'
+        - $ref: '#/components/schemas/MessengerInboundMediaMessage'
+        - $ref: '#/components/schemas/MessengerInboundMessage'
+        - $ref: '#/components/schemas/ViberInboundMediaMessage'
+        - $ref: '#/components/schemas/ViberInboundMessage'
+        - $ref: '#/components/schemas/LiveChatInboundMediaMessage'
+        - $ref: '#/components/schemas/LiveChatInboundMessage'
+        - $ref: '#/components/schemas/SMSInboundMessage'
+
     BasicInboundMessage:
       type: object
       required:
