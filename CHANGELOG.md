@@ -1,3 +1,10 @@
+# [1.0.0-beta.4](https://github.com/vlnevyhosteny/botbuilder-adapter-tyntec-conversation-inbox/compare/v1.0.0-beta.3...v1.0.0-beta.4) (2022-10-07)
+
+
+### Bug Fixes
+
+* missing declaration ([bf5f06a](https://github.com/vlnevyhosteny/botbuilder-adapter-tyntec-conversation-inbox/commit/bf5f06a043d64bafbf63277750ee35bcc8faa986))
+
 # [1.0.0-beta.3](https://github.com/vlnevyhosteny/botbuilder-adapter-tyntec-conversation-inbox/compare/v1.0.0-beta.2...v1.0.0-beta.3) (2022-10-07)
 
 
