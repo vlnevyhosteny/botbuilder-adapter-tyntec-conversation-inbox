@@ -1,24 +1,23 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { SendAudioMessageBodyType } from '../models/SendAudioMessageBodyType';
-import type { SendContactMessageBodyType } from '../models/SendContactMessageBodyType';
-import type { SendDocumentMessageBodyType } from '../models/SendDocumentMessageBodyType';
-import type { SendGifMessageBodyType } from '../models/SendGifMessageBodyType';
-import type { SendImageMessageBodyType } from '../models/SendImageMessageBodyType';
-import type { SendLocationMessageBodyType } from '../models/SendLocationMessageBodyType';
-import type { SendMessageResponse } from '../models/SendMessageResponse';
-import type { SendStickerMessageBodyType } from '../models/SendStickerMessageBodyType';
-import type { SendTemplateMessageBodyType } from '../models/SendTemplateMessageBodyType';
-import type { SendTextMessageBodyType } from '../models/SendTextMessageBodyType';
-import type { SendVideoMessageBodyType } from '../models/SendVideoMessageBodyType';
-import type { SendVoiceMessageBodyType } from '../models/SendVoiceMessageBodyType';
+import type { SendAudioMessageBodyType } from '../models/SendAudioMessageBodyType'
+import type { SendContactMessageBodyType } from '../models/SendContactMessageBodyType'
+import type { SendDocumentMessageBodyType } from '../models/SendDocumentMessageBodyType'
+import type { SendGifMessageBodyType } from '../models/SendGifMessageBodyType'
+import type { SendImageMessageBodyType } from '../models/SendImageMessageBodyType'
+import type { SendLocationMessageBodyType } from '../models/SendLocationMessageBodyType'
+import type { SendMessageResponse } from '../models/SendMessageResponse'
+import type { SendStickerMessageBodyType } from '../models/SendStickerMessageBodyType'
+import type { SendTemplateMessageBodyType } from '../models/SendTemplateMessageBodyType'
+import type { SendTextMessageBodyType } from '../models/SendTextMessageBodyType'
+import type { SendVideoMessageBodyType } from '../models/SendVideoMessageBodyType'
+import type { SendVoiceMessageBodyType } from '../models/SendVoiceMessageBodyType'
 
-import type { CancelablePromise } from '../core/CancelablePromise';
-import type { BaseHttpRequest } from '../core/BaseHttpRequest';
+import type { CancelablePromise } from '../core/CancelablePromise'
+import type { BaseHttpRequest } from '../core/BaseHttpRequest'
 
 export class MessagingService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
 
   /**
@@ -123,26 +122,36 @@ export class MessagingService {
     /**
      * Jabber IDs to represent channel
      */
-    channelJid: string,
+    channelJid: string
     /**
      * Jabber IDs to represent contacts
      */
-    contactJid: string,
+    contactJid: string
     /**
      * The message you would like to send
      */
-    requestBody: (SendTextMessageBodyType | SendVideoMessageBodyType | SendTemplateMessageBodyType | SendStickerMessageBodyType | SendVoiceMessageBodyType | SendLocationMessageBodyType | SendImageMessageBodyType | SendGifMessageBodyType | SendDocumentMessageBodyType | SendContactMessageBodyType | SendAudioMessageBodyType),
+    requestBody:
+      | SendTextMessageBodyType
+      | SendVideoMessageBodyType
+      | SendTemplateMessageBodyType
+      | SendStickerMessageBodyType
+      | SendVoiceMessageBodyType
+      | SendLocationMessageBodyType
+      | SendImageMessageBodyType
+      | SendGifMessageBodyType
+      | SendDocumentMessageBodyType
+      | SendContactMessageBodyType
+      | SendAudioMessageBodyType
   }): CancelablePromise<SendMessageResponse> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/channels/{channelJid}/messages/{contactJid}',
       path: {
-        'channelJid': channelJid,
-        'contactJid': contactJid,
+        channelJid: channelJid,
+        contactJid: contactJid,
       },
       body: requestBody,
       mediaType: 'application/json',
-    });
+    })
   }
-
 }

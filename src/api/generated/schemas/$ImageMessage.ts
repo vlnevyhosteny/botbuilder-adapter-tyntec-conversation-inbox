@@ -16,4 +16,4 @@ export const $ImageMessage = {
       type: 'Enum',
     },
   },
-} as const;
+} as const

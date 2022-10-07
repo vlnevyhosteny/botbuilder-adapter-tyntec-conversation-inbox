@@ -19,4 +19,4 @@ export const $DocumentMessage = {
       type: 'Enum',
     },
   },
-} as const;
+} as const

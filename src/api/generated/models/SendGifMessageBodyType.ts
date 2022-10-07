@@ -3,8 +3,7 @@
 /* eslint-disable */
 
 export type SendGifMessageBodyType = {
-  caption?: string;
-  mimeType: string;
-  type: 'gif';
-};
-
+  caption?: string
+  mimeType: string
+  type: 'gif'
+}

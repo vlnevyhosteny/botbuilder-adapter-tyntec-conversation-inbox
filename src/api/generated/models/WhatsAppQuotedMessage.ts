@@ -3,7 +3,6 @@
 /* eslint-disable */
 
 export type WhatsAppQuotedMessage = {
-  id?: string;
-  jid?: string;
-};
-
+  id?: string
+  jid?: string
+}

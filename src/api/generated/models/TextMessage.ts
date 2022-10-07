@@ -3,8 +3,7 @@
 /* eslint-disable */
 
 export type TextMessage = {
-  body?: string;
-  id?: string;
-  type?: 'text';
-};
-
+  body?: string
+  id?: string
+  type?: 'text'
+}

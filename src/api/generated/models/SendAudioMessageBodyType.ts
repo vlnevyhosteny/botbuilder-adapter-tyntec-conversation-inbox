@@ -3,7 +3,6 @@
 /* eslint-disable */
 
 export type SendAudioMessageBodyType = {
-  mimeType: string;
-  type: 'audio';
-};
-
+  mimeType: string
+  type: 'audio'
+}

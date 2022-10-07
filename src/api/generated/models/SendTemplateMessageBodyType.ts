@@ -3,7 +3,6 @@
 /* eslint-disable */
 
 export type SendTemplateMessageBodyType = {
-  type: 'template';
-  template: Array<any>;
-};
-
+  type: 'template'
+  template: Array<any>
+}

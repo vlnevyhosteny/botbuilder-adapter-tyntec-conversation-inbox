@@ -10,4 +10,4 @@ export const $Media = {
       type: 'string',
     },
   },
-} as const;
+} as const

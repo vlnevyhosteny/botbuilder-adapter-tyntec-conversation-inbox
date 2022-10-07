@@ -3,7 +3,6 @@
 /* eslint-disable */
 
 export type SendVoiceMessageBodyType = {
-  type: 'ptt';
-  mimeType: string;
-};
-
+  type: 'ptt'
+  mimeType: string
+}

@@ -3,6 +3,5 @@
 /* eslint-disable */
 
 export type SendMessageResponse = {
-  id: string;
-};
-
+  id: string
+}

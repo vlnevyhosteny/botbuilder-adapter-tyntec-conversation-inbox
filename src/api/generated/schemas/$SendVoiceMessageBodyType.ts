@@ -12,4 +12,4 @@ export const $SendVoiceMessageBodyType = {
       isRequired: true,
     },
   },
-} as const;
+} as const

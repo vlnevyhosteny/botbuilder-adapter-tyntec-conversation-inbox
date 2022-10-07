@@ -89,30 +89,30 @@ function getConversation({
   from,
 }: InboundMessage): Pick<Activity, 'conversation'> {
   const { jid, name } = from
-  if (jid) {
+  if (!jid) {
     throw new ValidationError('from.jid is undefined')
   }
 
-  if (name) {
+  if (!name) {
     throw new ValidationError('from.name is undefined')
   }
 
   return {
     conversation: {
       ...DEFAULT_ACTIVITY_PROPERTIES.conversation,
-      id: jid!,
-      name: name!,
+      id: jid,
+      name: name,
     },
   }
 }
 
 function getChannelId(message: InboundMessage): string {
   const match = message.to.match(/@(.*)/)
-  if (match === null) {
+  if (!match) {
     throw new MessageNotSupported('Unable to match channel from jid')
   }
 
-  return match[0]
+  return match[0].replace('@', '')
 }
 
 function getReplyToId(message: InboundMessage): string | undefined {

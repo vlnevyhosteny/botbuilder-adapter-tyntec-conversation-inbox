@@ -3,8 +3,7 @@
 /* eslint-disable */
 
 export type VoiceMessage = {
-  id?: string;
-  mimeType?: string;
-  type?: 'ptt';
-};
-
+  id?: string
+  mimeType?: string
+  type?: 'ptt'
+}

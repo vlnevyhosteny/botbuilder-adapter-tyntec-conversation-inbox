@@ -13,7 +13,7 @@ import { InboundMessage } from './api/generated/models/InboundMessage'
 import { SendTextMessageBodyType } from './api/generated/models/SendTextMessageBodyType'
 import Ajv from 'ajv'
 import { $InboundMessage } from './api/generated/schemas/$InboundMessage'
-import { inboundMessageToActivity } from './ActivityHelper'
+import { inboundMessageToActivity } from './activity'
 import { ValidationError } from './errors'
 
 export interface TyntecConversationInboxAdapterConfig
@@ -56,8 +56,7 @@ export class TyntecConversationInboxAdapter extends BotAdapter {
     const promises = activities
       .filter((activity) => activity.conversation && activity.text)
       .map((activity) =>
-        // TODO: hardcoded channel
-        this.sendMessageToWhatsApp(activity.conversation!.id, {
+        this.sendMessage(activity.channelId!, activity.conversation!.id, {
           type: 'text',
           body: activity.text!,
         }),
@@ -85,15 +84,12 @@ export class TyntecConversationInboxAdapter extends BotAdapter {
     res: WebResponse,
     logic: (context: TurnContext) => Promise<any>,
   ): Promise<void> {
-    if (!this.validateIncomingMessage(req.body)) {
-      res.status(400)
-      res.send('Invalid incoming message')
-      res.end()
-    }
-    const message = req.body as InboundMessage
+    const body = (await this.getRequestBody(req)) as InboundMessage
 
     try {
-      const context = new TurnContext(this, inboundMessageToActivity(message))
+      const activity = inboundMessageToActivity(body)
+
+      const context = new TurnContext(this, activity)
       await this.runMiddleware(context, logic)
 
       res.status(200)
@@ -103,11 +99,11 @@ export class TyntecConversationInboxAdapter extends BotAdapter {
         res.status(400)
         res.send(`${e.name}: ${e.message}`)
         res.end()
+      } else {
+        res.send(`Failed to process incoming message: ${e}`)
+        res.status(500)
+        res.end()
       }
-
-      res.status(500)
-      res.send(`Failed to process incoming message: ${e}`)
-      res.end()
     }
   }
 
@@ -137,6 +133,34 @@ export class TyntecConversationInboxAdapter extends BotAdapter {
     const validator = new Ajv()
     const validate = validator.compile($InboundMessage)
 
-    return validate(incoming)
+    const result = validate(incoming)
+
+    if (!result) {
+      console.log(validator.errors)
+    }
+
+    return result
   }
+
+  private getRequestBody = async (req: WebRequest) =>
+    new Promise(
+      (resolve: (value: unknown) => void, reject: (reason?: any) => void) => {
+        if (req.body !== undefined) {
+          return resolve(req.body)
+        }
+
+        let requestJson = ''
+        req.on!('data', (chunk: string) => {
+          requestJson += chunk
+        })
+
+        req.on!('end', (): void => {
+          try {
+            resolve(JSON.parse(requestJson))
+          } catch (e) {
+            reject(e)
+          }
+        })
+      },
+    )
 }

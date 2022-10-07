@@ -3,7 +3,6 @@
 /* eslint-disable */
 
 export type SendTextMessageBodyType = {
-  type: 'text';
-  body: string;
-};
-
+  type: 'text'
+  body: string
+}

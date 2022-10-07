@@ -10,10 +10,9 @@ export const $SendContactMessageBodyType = {
     contacts: {
       type: 'array',
       contains: {
-        properties: {
-        },
+        properties: {},
       },
       isRequired: true,
     },
   },
-} as const;
+} as const

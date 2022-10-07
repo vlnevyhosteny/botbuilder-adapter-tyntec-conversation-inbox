@@ -13,4 +13,4 @@ export const $StickerMessage = {
       type: 'Enum',
     },
   },
-} as const;
+} as const

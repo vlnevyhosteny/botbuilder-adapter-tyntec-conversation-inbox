@@ -3,7 +3,6 @@
 /* eslint-disable */
 
 export type SendContactMessageBodyType = {
-  type: 'contact';
-  contacts: Array<any>;
-};
-
+  type: 'contact'
+  contacts: Array<any>
+}

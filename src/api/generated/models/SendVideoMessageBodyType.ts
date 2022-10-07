@@ -3,8 +3,7 @@
 /* eslint-disable */
 
 export type SendVideoMessageBodyType = {
-  caption?: string;
-  mimeType: string;
-  type: 'video';
-};
-
+  caption?: string
+  mimeType: string
+  type: 'video'
+}

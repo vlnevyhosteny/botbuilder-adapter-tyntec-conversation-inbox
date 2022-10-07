@@ -13,4 +13,4 @@ export const $VideoMessage = {
       type: 'Enum',
     },
   },
-} as const;
+} as const

@@ -15,4 +15,4 @@ export const $SendVideoMessageBodyType = {
       isRequired: true,
     },
   },
-} as const;
+} as const

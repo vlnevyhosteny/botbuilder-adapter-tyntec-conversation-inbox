@@ -8,4 +8,4 @@ export const $SendMessageResponse = {
       isRequired: true,
     },
   },
-} as const;
+} as const

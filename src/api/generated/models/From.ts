@@ -3,7 +3,6 @@
 /* eslint-disable */
 
 export type From = {
-  jid?: string;
-  name?: string;
-};
-
+  jid?: string
+  name?: string
+}
