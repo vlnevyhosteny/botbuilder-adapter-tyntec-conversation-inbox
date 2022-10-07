@@ -1,6 +1,6 @@
 {
   "name": "botbuilder-adapter-tyntec-conversation-inbox",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "description": "A Microsoft Bot Framework adapter for handling connectivity in tyntec Conversations Inbox API.",
   "main": "index.js",
   "repository": "https://github.com/vlnevyhosteny/botbuilder-adapter-tyntec-conversation-inbox.git",
