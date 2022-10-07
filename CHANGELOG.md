@@ -1,3 +1,10 @@
+# [1.0.0-beta.6](https://github.com/vlnevyhosteny/botbuilder-adapter-tyntec-conversation-inbox/compare/v1.0.0-beta.5...v1.0.0-beta.6) (2022-10-07)
+
+
+### Bug Fixes
+
+* missing api version in route ([c07804a](https://github.com/vlnevyhosteny/botbuilder-adapter-tyntec-conversation-inbox/commit/c07804aa673f3c20d3337385de5833485983694a))
+
 # [1.0.0-beta.5](https://github.com/vlnevyhosteny/botbuilder-adapter-tyntec-conversation-inbox/compare/v1.0.0-beta.4...v1.0.0-beta.5) (2022-10-07)
 
 
