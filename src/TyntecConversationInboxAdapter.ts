@@ -125,23 +125,6 @@ export class TyntecConversationInboxAdapter extends BotAdapter {
     params: Pick<TyntecConversationInboxAdapterConfig, 'wabaNumber'>,
   ) => `${params.wabaNumber}@whatsapp.eazy.im`
 
-  private validateIncomingMessage(incoming?: any): incoming is InboundMessage {
-    if (!incoming) {
-      return false
-    }
-
-    const validator = new Ajv()
-    const validate = validator.compile($InboundMessage)
-
-    const result = validate(incoming)
-
-    if (!result) {
-      console.log(validator.errors)
-    }
-
-    return result
-  }
-
   private getRequestBody = async (req: WebRequest) =>
     new Promise(
       (resolve: (value: unknown) => void, reject: (reason?: any) => void) => {

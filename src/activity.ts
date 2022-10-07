@@ -18,7 +18,11 @@ const DEFAULT_ACTIVITY_PROPERTIES = {
   valueType: 'text',
 }
 
-export function inboundMessageToActivity(message: InboundMessage): Activity {
+export function inboundMessageToActivity(message: unknown): Activity {
+  if (!isInboundMessage(message)) {
+    throw new ValidationError('Given event is not message')
+  }
+
   const sender = getConversation(message)
   const channelId = getChannelId(message)
 
@@ -37,15 +41,6 @@ export function inboundMessageToActivity(message: InboundMessage): Activity {
     serviceUrl: getServiceUrl(channelId, sender.conversation.id),
   }
 
-  if (isBasicInboundMessage(message)) {
-    if (message.message.body) {
-      return {
-        ...activityBase,
-        text: message.message.body!,
-      }
-    }
-  }
-
   if (isBasicInboundMediaMessage(message)) {
     if (message.media.url) {
       return {
@@ -61,8 +56,24 @@ export function inboundMessageToActivity(message: InboundMessage): Activity {
     }
   }
 
+  if (isBasicInboundMessage(message)) {
+    if (message.message.body) {
+      return {
+        ...activityBase,
+        text: message.message.body!,
+      }
+    }
+  }
+
   throw new MessageNotSupported(
     `TyntecWhatsAppAdapter: ITyntecMoMessage.content.media.type other than audio, document, image, sticker and video not supported`,
+  )
+}
+
+function isInboundMessage(message: unknown): message is InboundMessage {
+  return (
+    (message as InboundMessage).type === 'message' &&
+    (message as InboundMessage).to !== undefined
   )
 }
 
