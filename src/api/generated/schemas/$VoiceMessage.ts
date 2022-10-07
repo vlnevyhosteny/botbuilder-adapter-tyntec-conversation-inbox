@@ -13,4 +13,4 @@ export const $VoiceMessage = {
       type: 'Enum',
     },
   },
-} as const
+} as const;

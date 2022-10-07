@@ -4,7 +4,8 @@
 export const $ContactMessage = {
   properties: {
     contacts: {
-      properties: {},
+      properties: {
+      },
     },
     id: {
       type: 'string',
@@ -13,4 +14,4 @@ export const $ContactMessage = {
       type: 'Enum',
     },
   },
-} as const
+} as const;

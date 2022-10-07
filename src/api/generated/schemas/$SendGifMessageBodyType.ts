@@ -15,4 +15,4 @@ export const $SendGifMessageBodyType = {
       isRequired: true,
     },
   },
-} as const
+} as const;

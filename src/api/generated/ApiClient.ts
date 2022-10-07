@@ -1,23 +1,21 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { BaseHttpRequest } from './core/BaseHttpRequest'
-import type { OpenAPIConfig } from './core/OpenAPI'
-import { AxiosHttpRequest } from './core/AxiosHttpRequest'
+import type { BaseHttpRequest } from './core/BaseHttpRequest';
+import type { OpenAPIConfig } from './core/OpenAPI';
+import { AxiosHttpRequest } from './core/AxiosHttpRequest';
 
-import { MessagingService } from './services/MessagingService'
+import { MessagingService } from './services/MessagingService';
 
-type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest
+type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 
 export class ApiClient {
-  public readonly messaging: MessagingService
 
-  public readonly request: BaseHttpRequest
+  public readonly messaging: MessagingService;
 
-  constructor(
-    config?: Partial<OpenAPIConfig>,
-    HttpRequest: HttpRequestConstructor = AxiosHttpRequest,
-  ) {
+  public readonly request: BaseHttpRequest;
+
+  constructor(config?: Partial<OpenAPIConfig>, HttpRequest: HttpRequestConstructor = AxiosHttpRequest) {
     this.request = new HttpRequest({
       BASE: config?.BASE ?? 'https://api.cmd.tyntec.com',
       VERSION: config?.VERSION ?? '1.0',
@@ -28,8 +26,9 @@ export class ApiClient {
       PASSWORD: config?.PASSWORD,
       HEADERS: config?.HEADERS,
       ENCODE_PATH: config?.ENCODE_PATH,
-    })
+    });
 
-    this.messaging = new MessagingService(this.request)
+    this.messaging = new MessagingService(this.request);
   }
 }
+

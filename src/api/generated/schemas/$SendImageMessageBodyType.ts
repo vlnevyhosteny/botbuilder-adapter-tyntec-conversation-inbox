@@ -15,4 +15,4 @@ export const $SendImageMessageBodyType = {
       isRequired: true,
     },
   },
-} as const
+} as const;

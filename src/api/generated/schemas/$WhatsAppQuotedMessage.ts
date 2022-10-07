@@ -10,4 +10,4 @@ export const $WhatsAppQuotedMessage = {
       type: 'string',
     },
   },
-} as const
+} as const;

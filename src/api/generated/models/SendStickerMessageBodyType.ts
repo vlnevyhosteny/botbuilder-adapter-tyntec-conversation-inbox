@@ -3,6 +3,7 @@
 /* eslint-disable */
 
 export type SendStickerMessageBodyType = {
-  type: 'sticker'
-  mimeType: string
-}
+  type: 'sticker';
+  mimeType: string;
+};
+

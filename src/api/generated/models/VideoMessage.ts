@@ -3,7 +3,8 @@
 /* eslint-disable */
 
 export type VideoMessage = {
-  id?: string
-  mimeType?: string
-  type?: 'video'
-}
+  id?: string;
+  mimeType?: string;
+  type?: 'video';
+};
+

@@ -3,7 +3,8 @@
 /* eslint-disable */
 
 export type ContactMessage = {
-  contacts?: any
-  id?: string
-  type?: 'contact'
-}
+  contacts?: any;
+  id?: string;
+  type?: 'contact';
+};
+

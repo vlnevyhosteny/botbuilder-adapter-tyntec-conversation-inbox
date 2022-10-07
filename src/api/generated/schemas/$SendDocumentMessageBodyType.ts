@@ -20,4 +20,4 @@ export const $SendDocumentMessageBodyType = {
       isRequired: true,
     },
   },
-} as const
+} as const;

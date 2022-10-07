@@ -7,4 +7,4 @@ export const $WhatsAppContextInfo = {
       type: 'WhatsAppQuotedMessage',
     },
   },
-} as const
+} as const;

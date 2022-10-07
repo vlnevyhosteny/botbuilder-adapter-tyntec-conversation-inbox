@@ -3,7 +3,8 @@
 /* eslint-disable */
 
 export type StickerMessage = {
-  id?: string
-  mimeType?: string
-  type?: 'sticker'
-}
+  id?: string;
+  mimeType?: string;
+  type?: 'sticker';
+};
+

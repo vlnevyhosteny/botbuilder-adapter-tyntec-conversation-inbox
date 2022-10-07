@@ -12,4 +12,4 @@ export const $SendAudioMessageBodyType = {
       isRequired: true,
     },
   },
-} as const
+} as const;
