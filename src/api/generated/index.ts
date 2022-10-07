@@ -30,6 +30,7 @@ export type { SendDocumentMessageBodyType } from './models/SendDocumentMessageBo
 export type { SendGifMessageBodyType } from './models/SendGifMessageBodyType';
 export type { SendImageMessageBodyType } from './models/SendImageMessageBodyType';
 export type { SendLocationMessageBodyType } from './models/SendLocationMessageBodyType';
+export type { SendMessageRequestBody } from './models/SendMessageRequestBody';
 export type { SendMessageResponse } from './models/SendMessageResponse';
 export type { SendStickerMessageBodyType } from './models/SendStickerMessageBodyType';
 export type { SendTemplateMessageBodyType } from './models/SendTemplateMessageBodyType';
@@ -72,6 +73,7 @@ export { $SendDocumentMessageBodyType } from './schemas/$SendDocumentMessageBody
 export { $SendGifMessageBodyType } from './schemas/$SendGifMessageBodyType';
 export { $SendImageMessageBodyType } from './schemas/$SendImageMessageBodyType';
 export { $SendLocationMessageBodyType } from './schemas/$SendLocationMessageBodyType';
+export { $SendMessageRequestBody } from './schemas/$SendMessageRequestBody';
 export { $SendMessageResponse } from './schemas/$SendMessageResponse';
 export { $SendStickerMessageBodyType } from './schemas/$SendStickerMessageBodyType';
 export { $SendTemplateMessageBodyType } from './schemas/$SendTemplateMessageBodyType';

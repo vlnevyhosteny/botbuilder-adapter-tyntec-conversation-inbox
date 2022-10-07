@@ -30,12 +30,14 @@ export class TyntecConversationInboxAdapter extends BotAdapter {
   public sendMessage = async (
     channelJid: string,
     contactJid: string,
-    requestBody: SendTextMessageBodyType,
+    message: SendTextMessageBodyType,
   ): Promise<SendMessageResponse> =>
     this.apiClient.messaging.sendMessage({
       channelJid,
       contactJid,
-      requestBody,
+      requestBody: {
+        message,
+      },
     })
 
   public sendMessageToWhatsApp = async (
