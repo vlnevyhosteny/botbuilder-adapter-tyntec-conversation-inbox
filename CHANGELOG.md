@@ -1,3 +1,10 @@
+# [1.0.0-beta.5](https://github.com/vlnevyhosteny/botbuilder-adapter-tyntec-conversation-inbox/compare/v1.0.0-beta.4...v1.0.0-beta.5) (2022-10-07)
+
+
+### Bug Fixes
+
+* wrong channelId ([2b554e4](https://github.com/vlnevyhosteny/botbuilder-adapter-tyntec-conversation-inbox/commit/2b554e41f9b226d64f1f8e3848210391b7fae0ca))
+
 # [1.0.0-beta.4](https://github.com/vlnevyhosteny/botbuilder-adapter-tyntec-conversation-inbox/compare/v1.0.0-beta.3...v1.0.0-beta.4) (2022-10-07)
 
 
