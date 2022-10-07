@@ -40,7 +40,7 @@ describe('inboundMessageToActivity', () => {
         name: inboundMessage.from.name,
       },
       timestamp: new Date(inboundMessage.timestamp),
-      channelId: 'whatsapp.eazy.im',
+      channelId: inboundMessage.to,
     })
   })
 
@@ -71,7 +71,7 @@ describe('inboundMessageToActivity', () => {
         name: inboundMessage.from.name,
       },
       timestamp: new Date(inboundMessage.timestamp),
-      channelId: 'whatsapp.eazy.im',
+      channelId: inboundMessage.to,
       attachments: [
         {
           contentUrl: inboundMediaMessage.media.url,
