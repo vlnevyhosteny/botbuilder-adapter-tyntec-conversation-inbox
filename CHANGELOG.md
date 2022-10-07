@@ -1,3 +1,10 @@
+# [1.0.0-beta.7](https://github.com/vlnevyhosteny/botbuilder-adapter-tyntec-conversation-inbox/compare/v1.0.0-beta.6...v1.0.0-beta.7) (2022-10-07)
+
+
+### Bug Fixes
+
+* messaging service ([e4e1565](https://github.com/vlnevyhosteny/botbuilder-adapter-tyntec-conversation-inbox/commit/e4e1565a9affb9c5e3ac2d29b0f6109bc351909e))
+
 # [1.0.0-beta.6](https://github.com/vlnevyhosteny/botbuilder-adapter-tyntec-conversation-inbox/compare/v1.0.0-beta.5...v1.0.0-beta.6) (2022-10-07)
 
 
