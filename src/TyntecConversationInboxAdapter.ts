@@ -1,6 +1,5 @@
 import {
   Activity,
-  ActivityTypes,
   BotAdapter,
   ConversationReference,
   ResourceResponse,
@@ -11,26 +10,21 @@ import {
 import { ApiClient, OpenAPIConfig, SendMessageResponse } from './api'
 import { InboundMessage } from './api/generated/models/InboundMessage'
 import { SendTextMessageBodyType } from './api/generated/models/SendTextMessageBodyType'
-import Ajv from 'ajv'
-import { $InboundMessage } from './api/generated/schemas/$InboundMessage'
 import { inboundMessageToActivity } from './activity'
 import { ValidationError } from './errors'
 
 export interface TyntecConversationInboxAdapterConfig
-  extends Pick<OpenAPIConfig, 'TOKEN'> {
-  wabaNumber: number
-}
+  extends Pick<OpenAPIConfig, 'TOKEN'> {}
 
 export class TyntecConversationInboxAdapter extends BotAdapter {
   private readonly apiClient: ApiClient = <any>{}
 
-  private readonly whatsAppChannelJid: string
+  private readonly whatsAppChannelJid: string = 'whatsapp.eazy.im'
 
   constructor(config: TyntecConversationInboxAdapterConfig) {
     super()
 
     this.apiClient = new ApiClient(config)
-    this.whatsAppChannelJid = this.composeWhatsAppChannelJid(config)
   }
 
   public sendMessage = async (
@@ -120,10 +114,6 @@ export class TyntecConversationInboxAdapter extends BotAdapter {
   ): Promise<void> {
     throw new Error('Method not implemented.')
   }
-
-  protected composeWhatsAppChannelJid = (
-    params: Pick<TyntecConversationInboxAdapterConfig, 'wabaNumber'>,
-  ) => `${params.wabaNumber}@whatsapp.eazy.im`
 
   private getRequestBody = async (req: WebRequest) =>
     new Promise(

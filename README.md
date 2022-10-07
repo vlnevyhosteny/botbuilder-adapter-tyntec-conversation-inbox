@@ -15,8 +15,8 @@ import express from 'express'
 import { TyntecConversationInboxAdapter } from '../src/TyntecConversationInboxAdapter'
 
 const adapter = new TyntecConversationInboxAdapter({
-  wabaNumber: 123,
-  TOKEN: 'asda',
+  wabaNumber: 123, // Fill your Weba Number
+  TOKEN: 'some-token', // Fill your Tyntec token
 })
 
 const app = express()
