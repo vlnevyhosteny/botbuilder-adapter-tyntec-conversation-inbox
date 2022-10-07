@@ -1,3 +1,10 @@
+# [1.0.0-beta.2](https://github.com/vlnevyhosteny/botbuilder-adapter-tyntec-conversation-inbox/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2022-10-07)
+
+
+### Bug Fixes
+
+* Merge remote-tracking branch 'origin/beta' into beta ([770c3c4](https://github.com/vlnevyhosteny/botbuilder-adapter-tyntec-conversation-inbox/commit/770c3c466abb7657a5cb137999fa3c556bc4022e))
+
 # 1.0.0-beta.1 (2022-10-07)
 
 
