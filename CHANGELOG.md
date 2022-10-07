@@ -1,3 +1,10 @@
+# [1.0.0-beta.3](https://github.com/vlnevyhosteny/botbuilder-adapter-tyntec-conversation-inbox/compare/v1.0.0-beta.2...v1.0.0-beta.3) (2022-10-07)
+
+
+### Bug Fixes
+
+* package json main ([d178f16](https://github.com/vlnevyhosteny/botbuilder-adapter-tyntec-conversation-inbox/commit/d178f160fb0fc4e98e298d195e42066882614610))
+
 # [1.0.0-beta.2](https://github.com/vlnevyhosteny/botbuilder-adapter-tyntec-conversation-inbox/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2022-10-07)
 
 
