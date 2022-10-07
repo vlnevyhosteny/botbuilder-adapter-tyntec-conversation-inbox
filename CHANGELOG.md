@@ -1,3 +1,10 @@
+# [1.0.0-beta.8](https://github.com/vlnevyhosteny/botbuilder-adapter-tyntec-conversation-inbox/compare/v1.0.0-beta.7...v1.0.0-beta.8) (2022-10-07)
+
+
+### Bug Fixes
+
+* add message wrapper to send message ([24585a4](https://github.com/vlnevyhosteny/botbuilder-adapter-tyntec-conversation-inbox/commit/24585a4c27b3748b5b493e634a9c3bd625656df6))
+
 # [1.0.0-beta.7](https://github.com/vlnevyhosteny/botbuilder-adapter-tyntec-conversation-inbox/compare/v1.0.0-beta.6...v1.0.0-beta.7) (2022-10-07)
 
 
