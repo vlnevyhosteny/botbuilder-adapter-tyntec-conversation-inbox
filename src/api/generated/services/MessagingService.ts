@@ -135,7 +135,7 @@ export class MessagingService {
   }): CancelablePromise<SendMessageResponse> {
     return this.httpRequest.request({
       method: 'POST',
-      url: 'v3/channels/{channelJid}/messages/{contactJid}',
+      url: '/v3/channels/{channelJid}/messages/{contactJid}',
       path: {
         'channelJid': channelJid,
         'contactJid': contactJid,
