@@ -54,6 +54,10 @@ If you are having issues, please let us know
 - either via https://www.tyntec.com/get-help-support
 - or support@tyntec.com
 
+## Release
+
+To release new version just push into `main`. To release beta push into `beta` branch. `@semantic-release/commit-analyzer` is used to decide how to increment version and compose CHANGELOG.
+
 ## License
 
 This project is distributed under the MIT license.
