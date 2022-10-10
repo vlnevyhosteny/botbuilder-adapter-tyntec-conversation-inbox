@@ -1,3 +1,10 @@
+# [1.0.0-beta.9](https://github.com/vlnevyhosteny/botbuilder-adapter-tyntec-conversation-inbox/compare/v1.0.0-beta.8...v1.0.0-beta.9) (2022-10-10)
+
+
+### Features
+
+* example echo bot ([cac39e9](https://github.com/vlnevyhosteny/botbuilder-adapter-tyntec-conversation-inbox/commit/cac39e9cddee7e5a3c900e7a27ecfa6d40b9698d))
+
 # [1.0.0-beta.8](https://github.com/vlnevyhosteny/botbuilder-adapter-tyntec-conversation-inbox/compare/v1.0.0-beta.7...v1.0.0-beta.8) (2022-10-07)
 
 
