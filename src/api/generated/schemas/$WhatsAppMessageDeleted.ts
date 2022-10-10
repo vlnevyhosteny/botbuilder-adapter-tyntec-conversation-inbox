@@ -32,4 +32,4 @@ export const $WhatsAppMessageDeleted = {
       isRequired: true,
     },
   },
-} as const
+} as const;

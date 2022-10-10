@@ -16,4 +16,4 @@ export const $GifMessage = {
       type: 'Enum',
     },
   },
-} as const
+} as const;

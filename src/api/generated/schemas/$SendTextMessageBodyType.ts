@@ -12,4 +12,4 @@ export const $SendTextMessageBodyType = {
       isRequired: true,
     },
   },
-} as const
+} as const;

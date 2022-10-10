@@ -117,14 +117,7 @@ function getConversation({
   }
 }
 
-function getChannelId(message: InboundMessage): string {
-  const match = message.to.match(/@(.*)/)
-  if (!match) {
-    throw new MessageNotSupported('Unable to match channel from jid')
-  }
-
-  return match[0].replace('@', '')
-}
+const getChannelId = (message: InboundMessage) => message.to
 
 function getReplyToId(message: InboundMessage): string | undefined {
   return (message as WhatsAppInboundMessage).contextInfo?.quotedMessage?.id

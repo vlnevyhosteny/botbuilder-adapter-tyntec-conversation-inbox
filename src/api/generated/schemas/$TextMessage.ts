@@ -13,4 +13,4 @@ export const $TextMessage = {
       type: 'Enum',
     },
   },
-} as const
+} as const;

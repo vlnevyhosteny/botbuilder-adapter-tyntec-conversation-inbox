@@ -22,4 +22,4 @@ export const $LocationMessage = {
       type: 'string',
     },
   },
-} as const
+} as const;

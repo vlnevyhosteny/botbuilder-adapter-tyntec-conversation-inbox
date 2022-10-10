@@ -12,4 +12,4 @@ export const $SendStickerMessageBodyType = {
       isRequired: true,
     },
   },
-} as const
+} as const;

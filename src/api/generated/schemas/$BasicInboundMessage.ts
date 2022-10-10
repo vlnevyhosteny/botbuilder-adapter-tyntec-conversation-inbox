@@ -28,4 +28,4 @@ export const $BasicInboundMessage = {
       isRequired: true,
     },
   },
-} as const
+} as const;

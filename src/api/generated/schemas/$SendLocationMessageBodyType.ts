@@ -24,4 +24,4 @@ export const $SendLocationMessageBodyType = {
       type: 'string',
     },
   },
-} as const
+} as const;

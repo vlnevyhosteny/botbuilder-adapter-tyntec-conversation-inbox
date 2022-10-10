@@ -3,7 +3,8 @@
 /* eslint-disable */
 
 export type AudioMessage = {
-  id?: string
-  mimeType?: string
-  type?: 'audio'
-}
+  id?: string;
+  mimeType?: string;
+  type?: 'audio';
+};
+
